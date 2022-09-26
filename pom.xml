@@ -89,8 +89,8 @@
  	<artifactId>maven-war-plugin</artifactId>
  	 <version>2.2</version>
 	       <configuration>
-                       <failOnMissingWebXml>false</failOnMissingWebXml>
-    <webXml>blob/main/webapp/WEB-INF/web.xml</webXml>        
+                       <failOnMissingWebXml>false</failOnMissingWebXml>     
+		         <webXml>..../WEB-INF/web.xml</webXml>
   </configuration>
      </plugin>
     </plugins>
