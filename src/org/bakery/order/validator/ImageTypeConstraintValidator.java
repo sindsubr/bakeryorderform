@@ -15,16 +15,17 @@ public class ImageTypeConstraintValidator implements ConstraintValidator<ImageTy
 
 	public boolean isValid(CommonsMultipartFile file, ConstraintValidatorContext context) {
 
-		String fileName = file.getOriginalFilename();
-		String[] splitString = fileName.split("\\.");
+		if (file != null) {
+			String fileName = file.getOriginalFilename();
+			String[] splitString = fileName.split("\\.");
 
-		if (splitString.length != 2) {	// Empty file
-			return true;
-		}
-		for (String value : valueArray) 
-			if (splitString[1].equalsIgnoreCase(value)) 
+			if (splitString.length != 2) { // Empty file
 				return true;
-				return false;
+			}
+			for (String value : valueArray)
+				if (splitString[1].equalsIgnoreCase(value))
+					return true;
+		}
+		return false;
 	}
 }
-
