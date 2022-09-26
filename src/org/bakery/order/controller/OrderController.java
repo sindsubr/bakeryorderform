@@ -53,6 +53,7 @@ public class OrderController {
 
 		String location = cakeFlavourPathMap.get("location");
 		CommonsMultipartFile file = customerObj.getCakeTheme();
+		if(file!=null) {
 		String filename = file.getOriginalFilename();
 		if (file.getContentType().contains("image"))
 		try {
@@ -68,6 +69,7 @@ public class OrderController {
 			System.out.println(e);
 		}
 		modelObj.addAttribute("cakeThemePath", cakeFlavourPathMap.get("jsplocation") + filename);
+		}
 		if (result.hasErrors()) {
 			System.out.println(result);
 			modelObj.addAttribute("customerModel", customerObj);
